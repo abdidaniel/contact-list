@@ -11,7 +11,7 @@ function agregarContacto(nombre) {
       contactos.splice(val, 1);
       console.log(nombre + " ha sido eliminado.");
     } else {
-      console.log($nombre + " no existe en la lista.");
+      console.log(nombre + " no existe en la lista.");
     }
   }
 
