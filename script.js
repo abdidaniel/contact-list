@@ -1,15 +1,5 @@
-let contactos = [
-  {
-    id: 1,
-    nombres: "Juan",
-    apellidos: "Castro",
-    telefono: "12345678",
-    ubicaciones: {
-      ciudad: "Pereira",
-      direccion: "Kr. 0 #0-00"
-    }
-  }
-]
+let contactos = [];
+
 function agregarContacto(id, nombres, apellidos, telefono, ciudad, direccion) {
   const contacto = {
     id: id,
@@ -40,6 +30,7 @@ function eliminarContacto(nombre) {
     console.log(nombre + " no existe en la lista.");
   }
 }
+
 function imprimirContacto(nombre) {
   for (let i = 0; i < contactos.length; i++) {
     if (contactos[i].nombres === nombre) {
@@ -50,4 +41,33 @@ function imprimirContacto(nombre) {
   console.log(nombre + " no existe en la lista.");
 }
 
+function actualizarContacto(nombre, tipoDato, nuevoDato) {
+  for (let i = 0; i < contactos.length; i++) {
+    if (contactos[i].nombres === nombre) {
+      switch (tipoDato) {
+        case "nombres":
+          contactos[i].nombres = nuevoDato;
+          break;
+        case "apellidos":
+          contactos[i].apellidos = nuevoDato;
+          break;
+        case "telefono":
+          contactos[i].telefono = nuevoDato;
+          break;
+        case "ciudad":
+          contactos[i].ubicaciones.ciudad = nuevoDato;
+          break;
+        case "direccion":
+          contactos[i].ubicaciones.direccion = nuevoDato;
+          break;
+        default:
+          console.log("Tipo de dato no válido.");
+          return;
+      }
+      console.log("El contacto ha sido actualizado.");
+      return;
+    }
+  }
+  console.log(nombre + " no existe en la lista.");
+}
 
